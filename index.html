@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>H O S N Y ~ R E P L A Y</title>
+  </head>
+  <body>
+    <div class="setup">
+        <h1>Humans of Simulated New York</h1>
+        <h2>What if...</h2>
+        <form>
+            <fieldset>
+                <label for="food"><h4>Quality of food</h4></label>
+                <input type="radio" name="food" value="1">There a super food that is really affordable and filling.<br>
+                <input type="radio" name="food" value="2">Food isn't much different than it is now.<br>
+                <input type="radio" name="food" value="3" checked>A blight leaves us with just expensive corn.
+            </fieldset>
+            <fieldset>
+                <label for="tech"><h4>Level of Technology</h4></label>
+                <input type="radio" name="tech" value="1" checked>Everything will be automated. We can all just hang out now.<br>
+                <input type="radio" name="tech" value="2">Technology isn't much different than it is now.<br>
+                <input type="radio" name="tech" value="3">We go back to using tools made out of rocks.
+            </fieldset>
+
+            <fieldset>
+                <label for="sick"><h4>Type of Disease</h4></label>
+                <input type="radio" name="sick" value="1" >An aggressive strain of virus is on the loose.<br>
+                <input type="radio" name="sick" value="2">Disease isn't much different than it is now.<br>
+                <input type="radio" name="sick" value="3" checked>Everyone is super healthy, no one ever gets sick. Like ever.
+            </fieldset>
+        </form>
+        <input type="submit" class="submit" value="Let's see what happens">
+    </div>
+    <div class="overlay">
+        <div class="alert"></div>
+    </div>
+    <div class="simulation">
+        <h1 class="datetime"></h1>
+        <div class="graphs">
+            <div class="graph graphs-healthcare"><h3>Healthcare price</h3></div>
+            <div class="graph graphs-qli"><h3>Quality of Life</h3></div>
+            <div class="graph graphs-cash"><h3>Cash</h3></div>
+            <div class="graph graphs-sick"><h3>Sick citizens</h3></div>
+            <div class="graph graphs-wage"><h3>Wage</h3></div>
+            <div class="graph graphs-consumer-good-profit"><h3>Consumer Good Profit</h3></div>
+        </div>
+        <button class="select-random">select random</button>
+            <canvas id="stage"></canvas>
+        <div class="info-tooltip"></div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
