@@ -1,110 +1,105 @@
 @import 'reset'
 @import 'graph'
 
-html
-  font-family: 'Cousine', 'monospace'
-  background: #f9f9f9
-
-main
-  height: 100vh
-
-canvas
-  display: block
-  z-index: 0
-  height: 100%
-  width: 100%
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-
-.info-tooltip
-  position: absolute
-  display: none
-  padding: 0.6em 0.4em 0.4em 0.6em
-  z-index: 1
-  background: #f7eaea
-  box-shadow: 2px 2px 0px #ffaadb
-  max-width: 14em
-
-.datetime
-  padding: 1em
-  background: #f7eaea
-  position: absolute
-  top: 1em
-  left: 1em
-  width: 6em
-  text-align: center
-  box-shadow: 4px 4px 0px #ffaadb
-  z-index: 1
-
-.select-random
-  position: absolute
-  bottom: 1em
-  left: 1em
-  z-index: 2
-  font-family: 'Cousine', 'monospace'
-  padding: 1em
-  border: none
-  cursor: pointer
-  background: #6fb3f7
-  &:hover
-    background: #5aa7f4
-
-.simulation
-  display: none
-
-.setup
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  background: #4286f4
-  color: #fff
-  padding: 4em
-  text-shadow: 2px 2px rgba(0,0,0,.1)
-  h1
-    font-size: 2em
-    margin-bottom: 1em
-  h2
-    font-size: 1.4em
-    margin-bottom: 1em
-  fieldset
-    padding: 1em 0
-  input[type=submit]
-    border: none
-    background: #fff
-    font-family: 'Cousine', 'monospace'
-    padding: 1em
-    cursor: pointer
-    box-shadow: 3px 3px rgba(0,0,0,0.2)
-    margin-top: 1em
-    &:disabled
-      opacity: 0.7
-
-.overlay
-  position: absolute
-  left: 0
-  right: 0
-  bottom: 0
-  top: 0
-  z-index: 1
-  display: none
-  .alert
-    background: #fff
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.2)
-    width: 18em
-    margin: 0 auto
-    padding: 1.6em 2em 1.5em 2em
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-
 #hosny
+  background: #f9f9f9
+  font-family: 'Cousine', 'monospace'
   position: relative
   height: 600px
   margin: 1em
   border: 2px solid rgba(0,0,0,0.1)
+
+  canvas
+    display: block
+    z-index: 0
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+  .info-tooltip
+    position: absolute
+    display: none
+    padding: 0.6em 0.4em 0.4em 0.6em
+    z-index: 1
+    background: #f7eaea
+    box-shadow: 2px 2px 0px #ffaadb
+    max-width: 14em
+
+  .datetime
+    padding: 1em
+    background: #f7eaea
+    position: absolute
+    top: 1em
+    left: 1em
+    width: 6em
+    text-align: center
+    box-shadow: 4px 4px 0px #ffaadb
+    z-index: 1
+
+  .select-random
+    position: absolute
+    bottom: 1em
+    left: 1em
+    z-index: 2
+    font-family: 'Cousine', 'monospace'
+    padding: 1em
+    border: none
+    cursor: pointer
+    background: #6fb3f7
+    &:hover
+      background: #5aa7f4
+
+  .simulation
+    display: none
+
+  .setup
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: #4286f4
+    color: #fff
+    padding: 4em
+    text-shadow: 2px 2px rgba(0,0,0,.1)
+    h1
+      font-size: 2em
+      margin-bottom: 1em
+    h2
+      font-size: 1.4em
+      margin-bottom: 1em
+    fieldset
+      padding: 1em 0
+    input[type=submit]
+      border: none
+      background: #fff
+      font-family: 'Cousine', 'monospace'
+      padding: 1em
+      cursor: pointer
+      box-shadow: 3px 3px rgba(0,0,0,0.2)
+      margin-top: 1em
+      &:disabled
+        opacity: 0.7
+
+  .overlay
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    z-index: 1
+    display: none
+    .alert
+      background: #fff
+      box-shadow: 5px 5px rgba(0, 0, 0, 0.2)
+      width: 18em
+      margin: 0 auto
+      padding: 1.6em 2em 1.5em 2em
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
