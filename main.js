@@ -1,3 +1,4 @@
+import './css/main.sass';
 import $ from 'jquery';
 import _ from 'underscore';
 import City from './app/City';
