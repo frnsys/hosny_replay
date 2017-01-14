@@ -105,7 +105,7 @@ $(function() {
 
     var fname = food + '.' + tech + '.' + sick + '.' + 'log.json';
 
-    $.getJSON('json/'+fname, {}, function(data) {
+    $.getJSON('/assets/json/'+fname, {}, function(data) {
       $('.simulation').show();
       $('.setup, .overlay').hide();
 
