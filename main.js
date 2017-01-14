@@ -58,9 +58,6 @@ const layout = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
-var city = new City(layout, '#stage');
-city.debug();
-
 $(function() {
   $('.setup .submit').on('click', function(ev) {
     ev.preventDefault();
@@ -109,9 +106,12 @@ $(function() {
     var fname = food + '.' + tech + '.' + sick + '.' + 'log.json';
 
     $.getJSON('json/'+fname, {}, function(data) {
-      var sim = new Simulation(city, graphs, data);
       $('.simulation').show();
       $('.setup, .overlay').hide();
+
+      var city = new City(layout, '#stage');
+      var sim = new Simulation(city, graphs, data);
+      city.debug();
 
       $('.select-random').on('click', function() {
         var person = _.sample(_.filter(data.start.population, p => p.avatar.mesh.visible));
