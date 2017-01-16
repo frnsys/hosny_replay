@@ -91,7 +91,8 @@ $(function() {
 
     $.getJSON('/assets/json/'+fname, {}, function(data) {
       $('.simulation').show();
-      $('.setup, .overlay').hide();
+      $('input[type="radio"]:not(:checked)').parent().hide();
+      $('.overlay').hide();
 
       var city = new City(layout, '#stage');
       var sim = new Simulation(city, graphs, data);

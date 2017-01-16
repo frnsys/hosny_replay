@@ -61,7 +61,9 @@ class Simulation {
 
       _.each(data.people.fired, data => {
         var person = this.city.population[data.id];
+
         if (person) {
+          console.log(person.data)
           person.status('unemployed');
           this.city.land.mesh.remove(person.mesh);
           this.city.land.mesh.add(person.mesh);
