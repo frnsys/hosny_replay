@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import * as d3 from 'd3';
 
 const maxNumberOfRecords = 51;
@@ -74,6 +75,7 @@ class Graph {
   }
 
   update(data) {
+    $(`.${this.name}`).parent().find('.graph-latest-value').text(data.value.toFixed(4));
     this.data = this.data.concat(data)
 
     // remove old data (i.e., avoid overflows)
