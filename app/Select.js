@@ -27,8 +27,13 @@ class SelectUI {
     ev.preventDefault();
 
     // adjust browser mouse position for three.js scene
-    this.mouse.x = (ev.clientX/this.renderer.domElement.clientWidth) * 2 - 1;
-    this.mouse.y = -(ev.clientY/this.renderer.domElement.clientHeight) * 2 + 1;
+    var offsets = this.renderer.domElement.getBoundingClientRect(),
+        client = {
+          x: ev.clientX - offsets.left,
+          y: ev.clientY - offsets.top
+        };
+    this.mouse.x = (client.x/this.renderer.domElement.clientWidth) * 2 - 1;
+    this.mouse.y = -(client.y/this.renderer.domElement.clientHeight) * 2 + 1;
 
     var raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(this.mouse, this.camera);
