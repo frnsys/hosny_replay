@@ -3,11 +3,13 @@ import config from 'config';
 import World from './Space/World';
 import Building from './Building';
 import Person from './Person';
+import Cloud from './Cloud';
 
 const VAL = {
   ROAD: 1,
   PLOT: 2
 };
+const nClouds = 12;
 
 class City {
   constructor(layout, selector) {
@@ -60,6 +62,16 @@ class City {
       this.place(person.mesh, c, r, {z: config.person.radius});
       person.wander(this.land, targets);
     });
+
+    // clouds
+    this.clouds = _.map(_.range(0, nClouds), () => {
+      var cloud = new Cloud(),
+          c = _.random(0, this.land.cols),
+          r = _.random(0, this.land.rows);
+      this.place(cloud.mesh, c, r);
+      cloud.mesh.position.setZ(_.random(4, 8) * config.cellSize);
+      return cloud;
+    });
   }
 
   debug() {
@@ -96,6 +108,16 @@ class City {
   update(delta) {
     _.each(this.population, p => {
       p.update(delta, this.land);
+    });
+
+    _.each(this.clouds, (c, i) => {
+      c.mesh.position.y += c.speed;
+      var coord = this.land.p2c(c.mesh.position.x, c.mesh.position.y);
+      if (coord.r > this.land.rows) {
+        var pos = this.land.c2p(_.random(0, this.land.cols), 0);
+        c.mesh.position.x = pos.x;
+        c.mesh.position.y = pos.y;
+      }
     });
   }
 }
