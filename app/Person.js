@@ -14,6 +14,21 @@ const colors = [
   0xc18b3a,
   0xa275d6
 ];
+// https://usa.ipums.org/usa-action/variables/EDUC#codes_section
+const EDUCATION = [
+  'none',
+  'preschool',
+  'primary school',
+  'high school',
+  'high school',
+  'high school',
+  'high school',
+  'college',
+  'college',
+  'college',
+  'college',
+  'graduate school'
+];
 const radius = config.person.radius;
 const speed = config.person.speed;
 const pathfinder = new PF.AStarFinder({
@@ -48,6 +63,14 @@ class Person {
     this.speed = _.random(speed[0], speed[1]);
   }
 
+  get html() {
+    return`
+      <h4>${this.data.name} (${this.data.age})</h4>
+      <h4>of ${this.data.neighborhood}</h4>
+      <h4>attended ${EDUCATION[this.data.education]}</h4>
+      <h4>${this.data.employmentStatus}</h4>`;
+  }
+
   status(status) {
     if (status === 'owner') {
         this.mesh.geometry = new THREE.SphereGeometry(radius);
@@ -56,6 +79,7 @@ class Person {
     } else {
         this.mesh.geometry = new THREE.TetrahedronGeometry(radius*1.5);
     }
+    this.data.employmentStatus = status;
     // note that the mesh needs to removed then readded to the scene for the update to take place
   }
 
