@@ -34,7 +34,7 @@
     background: #f7eaea
     position: absolute
     top: 1em
-    left: 1em
+    right: 1em
     width: 8em
     text-align: center
     box-shadow: 4px 4px 0px #ffaadb
@@ -43,7 +43,7 @@
   .select-random
     position: absolute
     bottom: 1em
-    left: 1em
+    right: 1em
     z-index: 2
     font-family: 'Cousine', 'monospace'
     padding: 1em
@@ -54,7 +54,10 @@
       background: #5aa7f4
 
   .simulation
-    display: none
+    //display: none
+    width: 90%
+    right: 0
+    position: absolute
 
   .setup
     position: absolute
@@ -65,7 +68,9 @@
     background: #4286f4
     color: #fff
     padding: 4em
+    width: 20%
     text-shadow: 2px 2px rgba(0,0,0,.1)
+    z-index: 1000
     h1
       font-size: 2em
       margin-bottom: 1em
@@ -74,6 +79,8 @@
       margin-bottom: 1em
     fieldset
       padding: 1em 0
+      li
+        list-style: none
     input[type=submit]
       border: none
       background: #fff
