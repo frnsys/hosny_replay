@@ -15,13 +15,14 @@ class Scene {
       antialias: false,
       canvas: canvas[0]
     });
-
-    this.renderer.setClearColor(0xffffff, 0);
     this.renderer.setSize(width, height);
 
     this.scene = new THREE.Scene();
-    this.camera = new THREE.OrthographicCamera(-D*aspect, D*aspect, D, -D, 1, 1000),
-    this.camera.zoom = 0.05;
+    // fog only works with perspective camera
+    this.camera = new THREE.PerspectiveCamera(40, aspect, 1, 1000),
+    this.camera.zoom = 0.4;
+    // this.camera = new THREE.OrthographicCamera(-D*aspect, D*aspect, D, -D, 1, 1000),
+    // this.camera.zoom = 0.05;
 
     this.camera.position.set(20, 20, 20);
     this.camera.lookAt(this.scene.position);
@@ -44,6 +45,7 @@ class Scene {
     pointLight.position.set(0, 20, 0);
     this.scene.add(pointLight);
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    this.scene.fog = new THREE.Fog(0xffffff, 0.015, 200);
   }
 
   add(mesh) {
