@@ -101,8 +101,9 @@ class Simulation {
       _.each(data.business, data => {
         var id = data.id;
         if (id in this.city.firms) {
+          var prevRevenue = this.city.firms[id].mesh.data.revenue || 0;
           this.city.firms[id].mesh.data.costs = data.costs;
-          this.city.firms[id].mesh.data.revenue = data.revenue;
+          this.city.firms[id].mesh.data.revenue = prevRevenue + data.revenue;
           this.city.firms[id].mesh.data.employees = data.employees + 1;
           this.city.firms[id].mesh.data.owner = data.owner;
         }
