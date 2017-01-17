@@ -24,7 +24,7 @@ class Simulation {
       $('.info-tooltip').show().css({
         top: pos.y,
         left: pos.x
-      }).html(obj.data.type);
+      }).html(obj.obj.html);
     }
   }
 
@@ -47,6 +47,7 @@ class Simulation {
         if (building) {
           var tenant = building.remove(data.tenant.id);
           this.selectui.selectables = _.without(this.selectui.selectables, tenant.mesh);
+          delete this.city.firms[data.tenant.id];
         }
       });
 
@@ -56,6 +57,7 @@ class Simulation {
         if (building) {
           var tenant = building.add(data.tenant);
           this.selectui.selectables.push(tenant.mesh);
+          this.city.firms[data.tenant.id] = tenant;
         }
       });
 
@@ -73,6 +75,7 @@ class Simulation {
         var person = this.city.population[data.id];
         if (person) {
           person.status('employed');
+          person.data.wage = data.wage;
           this.city.land.mesh.remove(person.mesh);
           this.city.land.mesh.add(person.mesh);
         }
@@ -92,6 +95,16 @@ class Simulation {
         if (person) {
           this.city.land.mesh.remove(person.mesh);
           delete this.city.population[data.id];
+        }
+      });
+
+      _.each(data.business, data => {
+        var id = data.id;
+        if (id in this.city.firms) {
+          this.city.firms[id].mesh.data.costs = data.costs;
+          this.city.firms[id].mesh.data.revenue = data.revenue;
+          this.city.firms[id].mesh.data.employees = data.employees + 1;
+          this.city.firms[id].mesh.data.owner = data.owner;
         }
       });
 

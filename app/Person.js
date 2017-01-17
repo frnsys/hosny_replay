@@ -64,11 +64,11 @@ class Person {
   }
 
   get html() {
-    return`
+    return `
       <h4>${this.data.name} (${this.data.age})</h4>
       <h4>of ${this.data.neighborhood}</h4>
       <h4>attended ${EDUCATION[this.data.education]}</h4>
-      <h4>${this.data.employmentStatus}</h4>`;
+      <h4>${this.data.employmentStatus ? this.data.employmentStatus : 'unemployed'} ${this.data.employmentStatus == 'employed' ? `($${this.data.wage})` : ''}</h4>`;
   }
 
   status(status) {

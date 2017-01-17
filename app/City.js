@@ -23,6 +23,7 @@ class City {
 
     this.buildings = {};
     this.population = {};
+    this.firms = {};
   }
 
   setup(population, buildings) {

@@ -20,6 +20,17 @@ class Tenant {
           color: colors[type]
         });
     this.mesh = new THREE.Mesh(geo, mat);
+    this.mesh.obj = this;
+  }
+
+  get html() {
+    return `
+      <h3>${this.mesh.data.name}</h3>
+      <h5>${this.mesh.data.type}</h5>
+      <h5>Owned by ${this.mesh.data.owner}</h5>
+      <h5>${this.mesh.data.employees} employees</h5>
+      <h5>$${this.mesh.data.revenue.toFixed(2)} revenue</h5>
+    `;
   }
 }
 
