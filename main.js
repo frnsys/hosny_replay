@@ -99,7 +99,7 @@ $(function() {
       setTimeout(() => {
         var city = new City(layout, '#stage');
         var sim = new Simulation(city, graphs, data);
-        city.debug();
+        // city.debug();
 
         $('.select-random').on('click', function() {
           var person = _.sample(_.filter(data.start.population, p => p.avatar.mesh.visible));
