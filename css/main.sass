@@ -69,9 +69,16 @@
     background: #4286f4
     color: #fff
     padding: 1em
-    width: 20%
     text-shadow: 2px 2px rgba(0,0,0,.1)
-    z-index: 1000
+    z-index: 5
+    width: 100%
+    transition: width 1s
+    &.compact
+      width: 16em
+  .setup-content
+    width: 16em
+    padding: 1em 0
+    margin: 0 auto
     h1
       font-size: 2em
       margin-bottom: 1em
@@ -100,7 +107,7 @@
     right: 0
     bottom: 0
     top: 0
-    z-index: 1
+    z-index: 6
     display: none
     .alert
       background: #fff

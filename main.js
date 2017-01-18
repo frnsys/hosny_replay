@@ -94,18 +94,22 @@ $(function() {
       $('input[type="radio"]:not(:checked)').parent().hide();
       $('.overlay').hide();
 
-      var city = new City(layout, '#stage');
-      var sim = new Simulation(city, graphs, data);
-      city.debug();
+      // ugh hacky
+      $('.setup').addClass('compact');
+      setTimeout(() => {
+        var city = new City(layout, '#stage');
+        var sim = new Simulation(city, graphs, data);
+        city.debug();
 
-      $('.select-random').on('click', function() {
-        var person = _.sample(_.filter(data.start.population, p => p.avatar.mesh.visible));
-        sim.selectui.selected = person.avatar.mesh;
-        $('.info-tooltip').html(person.avatar.html);
-      });
+        $('.select-random').on('click', function() {
+          var person = _.sample(_.filter(data.start.population, p => p.avatar.mesh.visible));
+          sim.selectui.selected = person.avatar.mesh;
+          $('.info-tooltip').html(person.avatar.html);
+        });
 
-      setInterval(sim.step.bind(sim), delay);
-      sim.run();
+        setInterval(sim.step.bind(sim), delay);
+        sim.run();
+      }, 1000);
     });
 
     return false;
