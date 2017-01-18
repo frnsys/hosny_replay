@@ -6,12 +6,12 @@ import Simulation from './app/Simulation';
 import Graph from './app/Graph';
 
 var graphs = {
-  mean_quality_of_life: new Graph(".graphs-qli", "mean_quality_of_life", 350, 100, "", false),
-  mean_healthcare_price: new Graph(".graphs-healthcare", "mean_healthcare_price", 350, 100, "", false),
-  mean_cash: new Graph(".graphs-cash", "mean_cash", 350, 100, "", false),
-  n_sick: new Graph(".graphs-sick", "n_sick", 350, 100, "", false),
-  mean_consumer_good_price: new Graph(".graphs-consumer-good-price", "mean_consumer_good_price", 350, 100, "", false),
-  mean_wage: new Graph(".graphs-wage", "mean_wage", 350, 100, "", false)
+  mean_quality_of_life: new Graph(".graphs-qli", "mean_quality_of_life", 200, 100, "", false),
+  mean_healthcare_price: new Graph(".graphs-healthcare", "mean_healthcare_price", 200, 100, "", false),
+  mean_cash: new Graph(".graphs-cash", "mean_cash", 200, 100, "", false),
+  n_sick: new Graph(".graphs-sick", "n_sick", 200, 100, "", false),
+  mean_consumer_good_price: new Graph(".graphs-consumer-good-price", "mean_consumer_good_price", 200, 100, "", false),
+  mean_wage: new Graph(".graphs-wage", "mean_wage", 200, 100, "", false)
 };
 
 
